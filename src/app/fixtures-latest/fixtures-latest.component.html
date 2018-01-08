@@ -1,0 +1,102 @@
+<div class="main-grid">
+
+    <h1>{{ haveFixturesBeenCreated ? "Fixtures - " + latestFixtures.dateOfSetOfFixtures : "Please create tournament fixtures
+        on the Administration page" }}</h1>
+
+    <div class="grid-container" *ngIf="haveFixturesBeenCreated">
+
+        <button class="btn btn-primary" id="startSetOfFixtures" (click)="startSetOfFixtures()" [disabled]="!setOfFixturesController.startFixturesButtonEnabled">{{ setOfFixturesController.startFixturesButtonText }}</button>
+
+        <div id="numberOfMinutes">&nbsp;{{ setOfFixturesController.minutesInfo }}</div>
+
+        <ng-container *ngFor="let group of groups; let groupCounter = index">
+
+            <div class="group-container">
+
+                <div class="fixtures-latest">
+
+                    <h4 class="group-header">{{ hasGroupStageFinished && groupCounter === 0 ? "Round of 16" : (!hasGroupStageFinished ? "Group " +
+                        group : "") }}</h4>
+
+                    <div class="fixtures">
+                        <ng-container *ngFor="let fixture of latestFixtures.fixtures; let fixtureIndex of index">
+                            <!-- <ng-template ngFor let-fixture [ngForOf]="setOfFixtures" let-fixtureIndex="index"> -->
+                            <ng-container *ngIf="(hasGroupStageFinished && groupCounter === 0) || fixture.group === group">
+
+                                <app-fixture [setOfFixturesController]="setOfFixturesController" [fixture]="fixture"></app-fixture>
+
+                                <!-- <div class="fixtures fixtures-row fixtures-row-latest">
+                                    <div class="countryName team1">{{ fixture.country1 }}</div>
+                                    <div class="timeOrScore" [class.timeOnly]="!fixture.hasFixtureFinished" [class.scoresOnly]="fixture.hasFixtureFinished">
+                                        <span *ngIf="!setOfFixturesController.fixturesInPlay && setOfFixturesController.minutesInfo !== 'Half-Time' && setOfFixturesController.minutesInfo !== 'Full-Time'" class="timeOfFixture">{{ fixture.timeOfFixture }}</span>
+                                        <span
+                                            [class.countryScore]="true"
+                                            [class.activeScore]="setOfFixturesController.fixturesInPlay"
+                                            [class.halfTimeScore]="setOfFixturesController.minutesInfo === 'Half-Time'"
+                                            [class.finalScore]="setOfFixturesController.minutesInfo === 'Full-Time'">
+                                            {{ fixture.country1Score }}
+                                        </span>
+                                        <span class="spacer">&nbsp;</span>
+                                        <span
+                                            [class.countryScore]="true"                                        
+                                            [class.activeScore]="setOfFixturesController.fixturesInPlay"
+                                            [class.halfTimeScore]="setOfFixturesController.minutesInfo === 'Half-Time'"
+                                            [class.finalScore]="setOfFixturesController.minutesInfo === 'Full-Time'">
+                                            {{ fixture.country2Score }}
+                                        </span>
+                                    </div>
+                                    <div class="countryName team2">{{ fixture.country2 }}</div>
+                                </div>
+
+                                <div class="fixtures-row-scores">
+                                    <div class="countryGoals team1">{{ fixture.country1Goals }}</div>
+                                    <div class="minutesPlayed">{{ (fixture.minutesPlayed === 0) ? '&nbsp;' : fixture.minutesInfo }}</div>
+                                    <div class="countryGoals team2">{{ fixture.country2Goals }}</div>
+                                </div> -->
+
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </div>
+    
+                                <!-- </div> -->
+
+                                <!-- <tr class="fixtures-row-latest"> -->
+                                <!-- <td id="homeTeamsName{{fixtureIndex}}">{{ fixture.country1 }} - {{ fixture.country1Odds | number : '1.1-1' }}</td> -->
+                                <!-- <td id="homeTeamsName{{fixtureIndex}}">{{ fixture.country1 }}</td>
+                                        <td id="homeTeamsScore{{fixtureIndex}}">
+                                            <span [class.activeScore]="setOfFixturesController.fixturesInPlay" [class.halfTimeScore]="setOfFixturesController.minutesInfo === 'Half-Time'"
+                                                [class.finalScore]="setOfFixturesController.minutesInfo === 'Full-Time'">
+                                                {{ fixture.country1Score }}
+                                            </span>
+                                        </td>
+                                        <td class="versus">{{ setOfFixturesController.versusBetweenTeams }}</td>
+                                        <td id="awayTeamsScore{{fixtureIndex}}">
+                                            <span [class.activeScore]="setOfFixturesController.fixturesInPlay" [class.halfTimeScore]="setOfFixturesController.minutesInfo === 'Half-Time'"
+                                                [class.finalScore]="setOfFixturesController.minutesInfo === 'Full-Time'">
+                                                {{ fixture.country2Score }}
+                                            </span>
+                                        </td>
+                                        <td id="awayTeamsName{{fixtureIndex}}">{{ fixture.country2 }}</td>
+                                    </tr> -->
+
+                                <!-- <tr class="fixtures-row-scores">
+                                        <td id="homeTeamsGoals{{fixtureIndex}}">{{ fixture.country1Goals }}</td>
+                                        <td>&nbsp;</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="awayTeamsGoals{{fixtureIndex}}">{{ fixture.country2Goals }}</td>
+                                    </tr> -->
+                          
+
+                <div class="table-container">
+                    <h5 class="group-header">{{ "Group " + group + (hasGroupStageFinished ? " - Final Table" : " - as it stands") }}</h5>
+                    <tables [tableTypeSummary]=true [tableTypeInPlay]=true [tablesInPlay]=tablesInPlay [tablesBeforeFixtures]=tablesBeforeFixtures
+                        [group]=group></tables>
+                </div>
+
+            </div>
+        </ng-container>
+
+    </div>
+</div>

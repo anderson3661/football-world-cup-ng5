@@ -1,0 +1,123 @@
+/* All tables */
+
+.container-tables {
+    text-align: center;
+}
+
+.main-grid-tables {
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.main-grid-tables>div {
+    max-width: 49%;
+}
+
+.main-grid-tables h4 { padding: 5px 0; }
+
+.main-grid-tables>card { margin-bottom: 50px; }
+
+.league-table { width: 100%; }
+.league-table { border-collapse: collapse; }
+
+.league-table-teamName { font-family: Arial, Helvetica, sans-serif; }
+.league-table-form-cell { font-family: Courier New, Courier, monospace; }
+
+.league-table-header { line-height: 30px; }
+
+.league-table-header { font-size: 0.9rem; }
+.league-table-form-cell { font-size: 0.8rem; }
+
+.league-table { text-align: right; }
+.league-table-teamName, .league-table-form-header, .league-table-form, .league-table-form-cell { text-align: left; }
+
+.league-table-header, .league-table-teamName, .league-table-points, .league-table-form-cell { font-weight: bold; }
+
+.league-table-position { width: 3%; }
+.league-table-movement { width: 4%; }
+.league-table-teamName { width: 30%; }
+.league-table-played, .league-table-won, .league-table-drawn, .league-table-lost { width: 4%; }
+.league-table-goalsFor, .league-table-goalsAgainst, .league-table-goalDifference { width: 5%; }
+.league-table-points { width: 10%; }
+
+.league-table-teamName a { color: black; }
+.league-table-form-cell { color: white; }
+
+/* .league-table-header { background-color: #F7F7F5; } */
+.league-table-header { background-color: #F0F1F2; }
+
+.league-table-form-cell.W { background-color: green; }
+.league-table-form-cell.D { background-color: gray; }
+.league-table-form-cell.L { background-color: red; }
+
+.league-table-row { border-bottom: 1px solid #e5e5e3; }
+
+.league-table-won { padding-left: 30px; }
+.league-table-goalsFor { padding-left: 40px; }
+.league-table-goalDifference { padding-left: 40px; }
+.league-table-form-header { padding-left: 20px; }
+
+.league-table-form-cell:first-child { margin-left: 20px;}
+
+.league-table-points {
+    padding-right: 20px;
+    /* border-right: 1px solid #e5e5e3; */
+}
+
+.league-table-form-cell {
+    margin-right: 3px;
+    padding: 3px;
+}
+    
+.league-table-row td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Full League Table */
+.league-table-full .league-table-position { width: 2%; }
+.league-table-full .league-table-movement { width: 1%; }
+.league-table-full .league-table-teamName { width: 18%; }
+.league-table-full .league-table-played, .league-table-won, .league-table-drawn, .league-table-lost { width: 3%; }
+.league-table-full .league-table-goalsFor, .league-table-goalsAgainst, .league-table-goalDifference { width: 4%; }
+.league-table-full .league-table-points { width: 8% }
+
+.league-table-full .league-table-won { padding-left: 40px; }
+.league-table-full .league-table-goalsFor { padding-left: 30px; }
+.league-table-full .league-table-goalDifference { padding-left: 40px; }
+.league-table-full .league-table-points { padding-right: 15px; }
+.league-table-full .league-table-form-cell { margin-right: 1px; padding: 3px; }
+.league-table-full .league-table-form-cell:first-child { margin-left: 15px;}
+
+
+/* In-Play League Table */
+.league-table-summary { line-height: 1.1rem; }
+.league-table-summary { font-size: 0.9rem; }
+.league-table-summary { padding-top: 10px; }
+.league-table-summary h3 { font-size: 1.1rem; font-weight: bold; }
+.league-table-summary .league-table-row td { padding-top: 6px; padding-bottom: 6px; }
+/* .league-table-summary .league-table-movement { width: 30px; text-align: center; } */
+.league-table-summary .league-table-movement { width: 5%; text-align: center; }
+.league-table-summary .league-table-teamName { width: 25%; }
+.league-table-summary .league-table-won { padding-left: 20px; }
+.league-table-summary .league-table-goalDifference { padding-left: 20px; }
+.league-table-summary .league-table-points { padding-right: 20px; }
+.league-table-summary .league-table-form-header { padding-left: 20px; }
+.league-table-summary .league-table-form-cell { margin-right: 1px; padding: 2px; }
+.league-table-summary .league-table-form-cell:first-child { margin-left: 20px;}
+
+.league-table-teamName img {
+    height: 16px;
+    width: 32px;
+}
+
+table.league-table th { text-align: right; }
+table.league-table th.league-table-teamName { text-align: left; }
+
+.card.league-table-group-stage { border: none; }
+.card-body.league-table-group-stage { padding-top: 0px; padding-bottom: 10px; }
+
+.fa-arrow-down { color: #fa8787; }
+.fa-arrow-up { color: #88c480; }

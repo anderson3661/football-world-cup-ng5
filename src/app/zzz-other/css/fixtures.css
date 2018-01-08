@@ -1,0 +1,15 @@
+.fixtures-row .fixtureDate {
+    width: 20%;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+.fixtures-row span.timeOfFixture {
+    padding: 4px 5px;
+    background-color: rgb(231, 229, 229);    
+}
+
+.fixtures-row .finalScore {
+    background-color: #FFDF43;
+    padding: 3px 5px;
+}

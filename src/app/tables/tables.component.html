@@ -1,0 +1,85 @@
+<ng-container *ngIf="tableTypeSummary; then tableSummary; else tableOthers"></ng-container>
+
+<ng-template #tableSummary>
+    <!-- <div id="league-table-latest"> -->
+    <div class="league-table-summary">
+        <!-- <h3>As It Stands Table</h3> -->
+        <ng-container *ngTemplateOutlet="restofTable"></ng-container>
+    </div>
+</ng-template>
+
+
+<ng-template #tableOthers>
+    <div class="container-tables">
+        <h1>Group Tables {{ hasTournamentFinished ? " - Final" : "" }}</h1>
+        <div class="main-grid-tables">
+            <ng-container *ngTemplateOutlet="restofTable"></ng-container>
+        </div>
+    </div>
+</ng-template>
+
+
+
+<ng-template #restofTable>
+
+    <ng-container *ngFor="let group of groups">
+
+        <!-- <div class="card bg-light border-secondary mb-3"> -->
+        <div class="card bg-light border-secondary mb-3" [class.league-table-group-stage]="tableTypeGroupStage">
+
+            <h4 class="card-header text-center" *ngIf="groups.length > 1">Group {{ group }}</h4>
+
+            <div class="card-body" [class.league-table-group-stage]="tableTypeGroupStage">
+
+                <table class="league-table">
+
+                    <thead class="league-table-body">
+                        <tr class="league-table-header">
+                            <!-- <th class="league-table-teamName" colspan="2">Country</th> -->
+                            <th class="league-table-movement" *ngIf="tableTypeInPlay">&nbsp;</th>
+                            <th class="league-table-teamName">Country</th>
+                            <th class="league-table-played">{{ tableTypeSummary ? "Pl" : "Played" }}</th>
+                            <th class="league-table-won">{{ tableTypeSummary ? "W" : "Won" }}</th>
+                            <th class="league-table-drawn">{{ tableTypeSummary ? "D" : "Drawn" }}</th>
+                            <th class="league-table-lost">{{ tableTypeSummary ? "L" : "Lost" }}</th>
+                            <th class="league-table-goalsFor" *ngIf="!tableTypeGroupStage">{{ tableTypeSummary ? "GF" : "For" }}</th>
+                            <th class="league-table-goalsAgainst" *ngIf="!tableTypeGroupStage && !tableTypeInPlay">{{ "Against" }}</th>
+                            <th class="league-table-goalDifference">GD</th>
+                            <th class="league-table-points">{{ tableTypeSummary ? "Pts" : "Points" }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="league-table-body">
+                        <ng-container *ngFor="let team of getGroupTable(group); let i = index;">
+                            <tr class="league-table-row">
+                                <td class="league-table-movement" aria-hidden="true" *ngIf="tableTypeInPlay" [class.fa]="tableTypeInPlay && hasTournamentStarted && (i < getPositionInArrayOfObjectsThis(tablesBeforeFixtures, 'teamName', team.teamName) || i > getPositionInArrayOfObjectsThis(tablesBeforeFixtures, 'teamName', team.teamName))"
+                                    [class.fa-arrow-up]="tableTypeInPlay && hasTournamentStarted && i < getPositionInArrayOfObjectsThis(tablesBeforeFixtures, 'teamName', team.teamName)"
+                                    [class.fa-arrow-down]="tableTypeInPlay && hasTournamentStarted && i > getPositionInArrayOfObjectsThis(tablesBeforeFixtures, 'teamName', team.teamName)">
+                                </td>
+
+                                <td class="league-table-teamName">
+                                    <img src="./../assets/{{ getCountryAbbeviation(team.country).toLowerCase() }}.png"> &nbsp;&nbsp;
+                                    {{ tableTypeGroupStage ? getCountryAbbeviation(team.country) : team.country }}
+                                </td>
+                                <!-- <td class="league-table-teamName"><a routerLink="/teamstats/{{ team.teamName }}" (mouseover)="hover=true" (mouseleave)="hover=false"><span [ngStyle]="{'text-decoration': (hover) ? 'underline' : 'none'}">{{ team.teamName }}</span></a></td> -->
+                                <td class="league-table-played">{{ team.played }}</td>
+                                <td class="league-table-won">{{ team.won }}</td>
+                                <td class="league-table-drawn">{{ team.drawn }}</td>
+                                <td class="league-table-lost">{{ team.lost }}</td>
+                                <td class="league-table-goalsFor" *ngIf="!tableTypeGroupStage">{{ team.goalsFor }}</td>
+                                <td class="league-table-goalsAgainst" *ngIf="!tableTypeGroupStage && !tableTypeInPlay">{{ team.goalsAgainst }}</td>
+                                <td class="league-table-goalDifference">{{ team.goalDifference }}</td>
+                                <td class="league-table-points">{{ team.points }}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </ng-container>
+
+</ng-template>

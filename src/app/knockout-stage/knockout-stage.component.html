@@ -1,0 +1,78 @@
+<div class="main-grid-knockout-stage">
+
+    <h1>Knockout Stage {{ this.dataService.appData.miscInfo.hasGroupStageFinished ? "" : "- Forecast" }}</h1>
+
+    <div class="grid-container">
+
+        <div class="container-roundOf16" [class.canDisplayFull]="canDisplayRoundOf16">
+            <ng-container *ngFor="let fixture of this.dataService.appData.knockoutStage.roundOf16">
+                <div class="fixtures knockout-stage">
+                    <div class="fixtures-date">{{ fixture.dateOfFixture }}</div>
+                    <div class="fixtures-row">
+                        <div class="countryName team1">{{ fixture.country1 }}</div>
+                        <div class="timeOrScore" [class.timeOnly]="!fixture.hasFixtureFinished" [class.scoresOnly]="fixture.hasFixtureFinished">
+                            <span *ngIf="!fixture.hasFixtureFinished" class="timeOfFixture">{{ fixture.timeOfFixture }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country1Score }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="spacer">&nbsp;</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country2Score }}</span>
+                        </div>
+                        <div class="countryName team2">{{ fixture.country2 }}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="container-quarterFinal" [class.canDisplayFull]="canDisplayQuarterFinals">
+            <ng-container *ngFor="let fixture of this.dataService.appData.knockoutStage.quarterFinals">
+                <div class="fixtures knockout-stage">
+                    <div class="fixtures-date">{{ fixture.dateOfFixture }}</div>
+                    <div class="fixtures-row">
+                        <div class="countryName team1">{{ fixture.country1 }}</div>
+                        <div class="timeOrScore" [class.timeOnly]="!fixture.hasFixtureFinished" [class.scoresOnly]="fixture.hasFixtureFinished">
+                            <span *ngIf="!fixture.hasFixtureFinished" class="timeOfFixture">{{ fixture.timeOfFixture }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country1Score }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country2Score }}</span>
+                        </div>
+                        <div class="countryName team2">{{ fixture.country2 }}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="container-semiFinal" [class.canDisplayFull]="canDisplaySemiFinals">
+            <ng-container *ngFor="let fixture of this.dataService.appData.knockoutStage.semiFinals">
+                <div class="fixtures knockout-stage">
+                    <div class="fixtures-date">{{ fixture.dateOfFixture }}</div>
+                    <div class="fixtures-row">
+                        <div class="countryName team1">{{ fixture.country1 }}</div>
+                        <div class="timeOrScore" [class.timeOnly]="!fixture.hasFixtureFinished" [class.scoresOnly]="fixture.hasFixtureFinished">
+                            <span *ngIf="!fixture.hasFixtureFinished" class="timeOfFixture">{{ fixture.timeOfFixture }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country1Score }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country2Score }}</span>
+                        </div>
+                        <div class="countryName team2">{{ fixture.country2 }}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="container-final" [class.canDisplayFull]="canDisplayFinals">
+            <ng-container *ngFor="let fixture of this.dataService.appData.knockoutStage.final">
+                <div class="fixtures knockout-stage">
+                    <div class="fixtures-date">{{ fixture.dateOfFixture }}</div>
+                    <div class="fixtures-row">
+                        <div class="countryName team1">{{ fixture.country1 }}</div>
+                        <div class="timeOrScore" [class.timeOnly]="!fixture.hasFixtureFinished" [class.scoresOnly]="fixture.hasFixtureFinished">
+                            <span *ngIf="!fixture.hasFixtureFinished" class="timeOfFixture">{{ fixture.timeOfFixture }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country1Score }}</span>
+                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country2Score }}</span>
+                        </div>
+                        <div class="countryName team2">{{ fixture.country2 }}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+
+</div>

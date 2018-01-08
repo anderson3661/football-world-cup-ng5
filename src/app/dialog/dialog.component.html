@@ -1,0 +1,17 @@
+<h2 mat-dialog-title align="center">{{ data.title }}</h2>
+
+<!-- <mat-dialog-content>Are you sure?</mat-dialog-content> -->
+
+<mat-dialog-actions align="center">
+    <!-- <button mat-raised-button mat-dialog-close>No</button> -->
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <!-- <button mat-button [mat-dialog-close]="true">Yes</button> -->
+    <button mat-raised-button color="primary" (click)="closeDialog(true)" *ngIf="data.informationOnly">OK</button>
+    <button mat-raised-button color="primary" (click)="closeDialog(false)" *ngIf="!data.informationOnly">No</button>
+    <button mat-raised-button color="primary" (click)="closeDialog(true)" *ngIf="!data.informationOnly">Yes</button>
+</mat-dialog-actions>
+
+<br *ngIf="data.info">
+<br *ngIf="data.info">
+
+<mat-dialog-content *ngIf="data.info" align="end">{{ data.info }}</mat-dialog-content>

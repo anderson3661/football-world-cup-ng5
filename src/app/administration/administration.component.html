@@ -1,0 +1,165 @@
+<div class="inner-container">
+
+    <div class="main-grid">
+
+        <h1>Administration</h1>
+
+        <form class="admin-form" #adminForm="ngForm">
+
+            <div class="admin-container">
+
+                <div class="admin-teams-container">
+
+                    <div class="card bg-light border-secondary mb-3">
+
+                        <h4 class="card-header text-center">Groups and Countries</h4>
+                        <!-- <ng-container *ngFor="let group of appDataTeams; let i = index> -->
+
+                        <div class="card-body admin-teams-card-body">
+                            <table class="admin-teams">
+                                <thead>
+                                    <tr class="teams-header">
+                                        <th class="admin-team-group">Group</th>
+                                        <th class="admin-team-country">Country</th>
+                                        <th class="admin-team-abbreviation">Abbr.</th>
+                                        <th class="admin-team-odds">Odds (to 1)</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <ng-container *ngFor="let team of appDataTeams; let i = index">
+                                        <tr class="team-row">
+                                            <td id="group{{ i }}">
+                                                <input type="text" class="form-control form-control-sm" id="group{{ i }}" [(ngModel)]="team.group" name="group{{ i }}">
+                                            </td>
+                                            <td id="country{{ i }}">
+                                                <input type="text" class="form-control form-control-sm" id="country{{ i }}" [(ngModel)]="team.country" name="country{{ i }}">
+                                            </td>
+                                            <td id="abbreviation{{ i }}">
+                                                <input type="text" class="form-control form-control-sm" id="abbreviation{{ i }}" [(ngModel)]="team.abbreviation" name="abbreviation{{ i }}">
+                                            </td>
+                                            <td id="odds{{ i }}">
+                                                <input type="text" class="form-control form-control-sm" id="odds{{ i }}" [(ngModel)]="team.odds" name="odds{{ i }}">
+                                            </td>
+                                        </tr>
+                                        <ng-container *ngIf="(i+1)%4 === 0">
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </ng-container>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- </ng-container> -->
+                    </div>
+
+                </div>
+
+                <div class="admin-factors-container">
+
+                    <!-- <mat-card class="example-card">            
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>             -->
+                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+                    <!-- <mat-card-content>
+                    <p>
+                      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                      bred for hunting.
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions>
+                </mat-card> -->
+
+                    <div class="card bg-light border-secondary mb-3">
+                        <h4 class="card-header text-center">Tournament Information</h4>
+                        <div class="card-body" id="card-body-information-for-the-tournament">
+
+                            <div class="form-group row">
+                                <label for="tournamentYear" class="col-sm-6 col-form-label">Tournament Year</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="tournamentYear" [(ngModel)]="appDataMiscInfo.tournamentYear" name="tournamentYear">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="tournamentStartDate" class="col-sm-6 col-form-label">Tournament Start Date</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="tournamentStartDate" [(ngModel)]="appDataMiscInfo.tournamentStartDate" name="tournamentStartDate">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="numberOfTeams" class="col-sm-6 col-form-label">Number of Teams</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="numberOfTeams" [(ngModel)]="appDataMiscInfo.numberOfTeams" name="numberOfTeams">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="numberOfGroups" class="col-sm-6 col-form-label">Number of Groups</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="numberOfGroups" [(ngModel)]="appDataMiscInfo.numberOfGroups" name="numberOfGroups">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card bg-light border-secondary mb-1">
+                        <h4 class="card-header text-center">Match Score Factors</h4>
+                        <div class="card-body" id="card-body-match-score-factors">
+
+                            <div class="form-group row">
+                                <label for="factorBaseForRandomMultiplier" class="col-sm-6 col-form-label">Base For Random Multiplier</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="factorBaseForRandomMultiplier" [(ngModel)]="appDataMiscInfo.factorBaseForRandomMultiplier"
+                                        name="factorBaseForRandomMultiplier">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="factorLikelihoodOfAGoalDuringASetPeriod" class="col-sm-6 col-form-label">Goals Per Minute Factor</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="factorLikelihoodOfAGoalDuringASetPeriod" [(ngModel)]="appDataMiscInfo.factorLikelihoodOfAGoalDuringASetPeriod"
+                                        name="factorLikelihoodOfAGoalDuringASetPeriod">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="factorIsItAGoal" class="col-sm-6 col-form-label">Is It A Goal Factor</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="factorIsItAGoal" [(ngModel)]="appDataMiscInfo.factorIsItAGoal" name="factorIsItAGoal">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="matchUpdateInterval" class="col-sm-6 col-form-label">Match Update Interval (seconds)</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="matchUpdateInterval" [(ngModel)]="appDataMiscInfo.matchUpdateInterval" name="matchUpdateInterval">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <br />
+                    <button id="adminSave" class="btn btn-primary" (click)="this.dataService.saveAppData(true)">Save Changes</button> &nbsp; &nbsp;
+                    <button id="createTournamentFixtures" class="btn btn-info" (click)="this.createTournamentFixtures()">Create Tournament Fixtures</button> &nbsp; &nbsp;
+                    <br />
+                    <br />
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>

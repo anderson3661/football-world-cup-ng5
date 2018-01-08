@@ -1,0 +1,96 @@
+.group-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.group-header {
+    padding-bottom: 10px;
+}
+
+.fixtures-latest {
+    width: 40%
+}
+
+.table-container {
+    width: 55%;
+}
+
+.table-container h5.group-header {
+    margin-bottom: 0;
+}
+
+.main-grid h1 {
+    text-align: center;
+}
+
+.fixtures-row {
+    display: flex;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.fixtures-row-scores {
+    display: flex;    
+    font-size: 0.8em;
+    color: #888;
+    border-bottom: 1px solid #E0E0E0;     
+}
+
+.fixtures-date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: darkgray;
+    padding-top: 15px;    
+}
+
+.timeOrScore {
+    padding-top: 8px;
+}
+
+.timeOrScore.scoresOnly, .timeOrScore.timeOnly, .fixtures-row-scores .minutesPlayed { width: 20%; }
+
+.countryName, .countryGoals { width: 40%; }
+.countryScore { width: 49%; }
+.timeOrScore .spacer { width: 2%; }
+
+.countryName {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.timeOrScore, .minutesPlayed {
+    text-align: center;
+}
+
+.countryName.team1, .countryGoals.team1 { text-align: right; }
+.countryName.team2, .countryGoals.team2 { text-align: left; }
+
+.countryGoals.team1 { padding-right: 5px; }
+.countryGoals.team2 { padding-left: 5px; }
+
+.fixtures-row-scores .countryGoals {
+    white-space: pre;    /* This allows 2 spaces between goals */
+}
+
+.fixtures-row .activeScore {
+    color: white;   
+    background-color: #1f2fe4;
+    padding: 5px;
+}
+
+.fixtures-row .halfTimeScore {
+    background-color: #c5caf0;
+    padding: 5px;
+}
+
+.fixtures-row .finalScore {
+    background-color: #FFDF43;
+    padding: 3px 5px;
+}
+
+.fa-arrow-down { color: #fa8787; }
+.fa-arrow-up { color: #88c480; }

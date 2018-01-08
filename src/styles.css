@@ -1,1 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: white;
+    font-family: Aerial;
+    margin: 0;
+    line-height: 1.0;
+}
+
+body h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/*Small screens*/
+@media only screen and (max-width: 900px) { }
+
+/*Large screens*/
+@media only screen and (min-width: 901px) { }
+
+
+.main-header {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #FFDF43;  /* Yellow */
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 1px solid gray;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav#sport {
+    color: black;
+    background-color: #FFDF43;
+}
+
+nav.individual-sport {
+    color: white;
+    background-color: black;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 6px 10px 6px 3px;
+    border-right: 1px solid gray;
+}
+
+nav ul li:hover {    
+    cursor: pointer;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    color: yellow;
+}
+
+a:visited {    
+    color: white;
+}
+
+nav ul li:first-child {
+    padding-left: 0;
+}
+
+nav ul li:last-child {
+    border-right: none;
+}
+
+.main-grid {
+    max-width: 1024px;
+    /* max-width: 80%; */
+    margin: 0 auto;
+}
+
+footer {
+    padding: 15px;
+    background-color: #4C4C4C;
+    /*opacity: 0.8;*/
+    text-align: right;
+    color: white;
+    margin-top: 50px;
+}
+
+footer label {
+    font-weight: bold;
+    color: blue;
+}
+

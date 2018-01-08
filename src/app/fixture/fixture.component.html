@@ -1,0 +1,30 @@
+<div class="fixtures fixtures-row fixtures-row-latest">
+    <div class="countryName team1">{{ fixture.country1 }}</div>
+    <div class="timeOrScore" [class.timeOnly]="!fixture.hasFixtureFinished" [class.scoresOnly]="fixture.hasFixtureFinished">
+        <span *ngIf="!setOfFixturesController.fixturesInPlay && setOfFixturesController.minutesInfo !== 'Half-Time' && setOfFixturesController.minutesInfo !== 'Full-Time'" class="timeOfFixture">{{ fixture.timeOfFixture }}</span>
+        <span
+            [class.countryScore]="true"
+            [class.activeScore]="setOfFixturesController.fixturesInPlay"
+            [class.halfTimeScore]="setOfFixturesController.minutesInfo === 'Half-Time'"
+            [class.finalScore]="setOfFixturesController.minutesInfo === 'Full-Time'">
+            {{ fixture.country1Score }}
+        </span>
+        <span class="spacer">&nbsp;</span>
+        <span
+            [class.countryScore]="true"                                        
+            [class.activeScore]="setOfFixturesController.fixturesInPlay"
+            [class.halfTimeScore]="setOfFixturesController.minutesInfo === 'Half-Time'"
+            [class.finalScore]="setOfFixturesController.minutesInfo === 'Full-Time'">
+            {{ fixture.country2Score }}
+        </span>
+    </div>
+    <div class="countryName team2">{{ fixture.country2 }}</div>
+</div>
+
+<div class="fixtures-row-scores">
+    <div class="countryGoals team1">{{ fixture.country1Goals }}</div>
+    <div class="minutesPlayed">{{ (fixture.minutesPlayed === 0) ? '&nbsp;' : fixture.minutesInfo }}</div>
+    <div class="countryGoals team2">{{ fixture.country2Goals }}</div>
+</div>
+
+                           

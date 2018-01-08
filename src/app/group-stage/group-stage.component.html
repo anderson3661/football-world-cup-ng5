@@ -1,0 +1,43 @@
+<div class="main-grid-group-stage">
+
+    <h1>{{ haveFixturesBeenCreated ? "Group Stage" : "Please create tournament fixtures on the Administration page" }}</h1>
+
+    <div class="grid-container" *ngIf="haveFixturesBeenCreated">
+
+        <ng-container *ngFor="let group of groups">
+
+            <div class="group-container">
+
+                <div class="card bg-light border-secondary mb-3">
+
+                    <h4 class="group-header">Group {{ group }}</h4>
+
+                    <!-- Call app-table from tables.component.html -->
+                    <tables [tableTypeGroupStage]=true [tableTypeSummary]=true [group]=group></tables>
+
+                    <ng-container *ngFor="let setOfFixtures of fixtures; let i of index">
+                        <ng-container *ngFor="let fixture of setOfFixtures.fixtures">
+                            <ng-container *ngIf="fixture.group === group">
+                                <div class="fixtures group-stage">
+                                    <div class="fixtures-date">{{ setOfFixtures.dateOfSetOfFixtures }}</div>
+                                    <div class="fixtures-row">
+                                        <div class="countryName team1">{{ fixture.country1 }}</div>
+                                        <div class="timeOrScore" [class.timeOnly]="!fixture.hasFixtureFinished" [class.scoresOnly]="fixture.hasFixtureFinished">
+                                            <span *ngIf="!fixture.hasFixtureFinished" class="timeOfFixture">{{ fixture.timeOfFixture }}</span>
+                                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country1Score }}</span>
+                                            <span *ngIf="fixture.hasFixtureFinished" class="finalScore">{{ fixture.country2Score }}</span>
+                                        </div>
+                                        <div class="countryName team2">{{ fixture.country2 }}</div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+
+</div>

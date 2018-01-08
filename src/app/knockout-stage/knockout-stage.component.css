@@ -1,0 +1,104 @@
+.main-grid-knockout-stage {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    /* flex-direction: column; */
+    /* display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    align-items: center;
+    align-content: space-evenly; */
+}
+
+.grid-container>div {
+    display: flex;
+    flex-direction: column;
+    /* align-items: space-evenly; */
+    /* align-self: space-evenly; */
+    justify-content: space-evenly;
+}
+
+.container-roundOf16, .container-quarterFinal, .container-semiFinal, .container-final { display: flex; }
+.container-roundOf16, .container-quarterFinal, .container-semiFinal, .container-final { width: 18%; }
+.container-roundOf16.canDisplayFull, .container-quarterFinal.canDisplayFull, .container-semiFinal.canDisplayFull, .container-final.canDisplayFull { width: 25%; }
+
+/* .container-quarterFinal { */
+    /* flex-direction: column;
+    align-items: space-evenly;
+    align-self: space-evenly;
+    justify-content: space-evenly; */
+    /* align-items: center; */
+    /* grid-row-gap: 150px;
+    align-content: end;
+    align-content: space-evenly; */
+/* } */
+
+.fixtures.knockout-stage {
+    width: 100%;
+    border-bottom: 1px solid #DBDADA;
+    background-color: #F4F4F4;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}
+
+.fixtures.canDisplayFull {
+    padding: 10px 10px;
+}
+
+.fixtures-row {
+    font-weight: bold;
+    display: flex;
+    border-bottom: none;
+}
+
+.fixtures-date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: darkgray;
+    padding-top: 4px;
+    padding-bottom: 10px;
+}
+
+.timeOrScore.scoresOnly {
+    display: flex;
+    justify-content: center;
+    padding-top: 4px;
+    padding-bottom: 8px;
+}    
+
+.timeOrScore.timeOnly {
+    text-align: center;
+    padding-top: 8px;
+}
+
+.countryName { width: 36%; }
+.canDisplayFull .countryName { width: 40%; }
+.timeOrScore .timeOfFixture { width: 36%; }
+.timeOrScore.scoresOnly { width: 20%; }
+.timeOrScore.timeOnly { width: 28%; }
+.canDisplayFull .timeOrScore.timeOnly { width: 20%; }
+.timeOrScore.finalScore { width: 47%; }
+.timeOrScore .spacer { width: 6%; }
+
+
+.countryName {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.countryName.team1 {
+    text-align: right;
+}
+
+.countryName.team2 {
+    text-align: left;
+}

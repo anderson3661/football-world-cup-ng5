@@ -1,0 +1,72 @@
+.main-grid h1 {
+    text-align: center;
+}
+
+.admin-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-teams-container {
+    max-width: 45%;
+}
+
+.admin-teams-container .card-header {
+    padding: 5px 0;
+}
+
+table.admin-teams {
+    font-size: 14px;   
+    width: 100%;
+    margin: 10px 0;
+    border-collapse: collapse;
+}
+
+table.admin-teams .teams-header {
+    /* background-color: lightgray; */
+    background-color: #F0F1F2;
+}
+
+table.admin-teams thead th {
+    padding: 5px;
+}
+
+table.admin-teams tbody tr:odd {
+    /* background-color: gray; */
+}
+
+table.admin-teams td {
+    padding: 2px;
+}
+
+table.admin-teams input {
+    color: #495057;
+}    
+
+.admin-team-group { width: 15%; }
+.admin-team-country { width: 50%; }
+.admin-team-abbreviation { width: 15%; }
+.admin-team-odds { width: 20%; }
+
+.admin-team-group, .admin-team-odds { text-align: center; }
+.team-row input[id^="group"] { text-align: center; }
+.team-row input[id^="odds"] { text-align: center; }
+
+.card-body {
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.form-group {
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.col-form-label {
+    padding-right: 0;
+}
+
+.form-control-sm {
+    padding: 0;
+    padding-left: 5px;
+}

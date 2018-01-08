@@ -1,0 +1,84 @@
+.main-grid-latest-fixtures, .main-grid-group-stage {
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.main-grid-group-stage h1 {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 25px;
+    grid-row-gap: 50px;
+}
+/* 
+#numberOfMinutes {
+    text-align: center;
+    color: blue;
+} */
+
+.fixture-container {
+    border-bottom: 1px solid #EEEEEE;
+    margin: 10px 0;
+}
+
+.fixture-container tbody, .fixture-container tbody tr {
+    width: 100%;
+}
+
+.card {
+    padding-bottom: 20px;
+}
+
+h4.group-header {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.fixtures-row {
+    font-weight: bold;
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+}
+
+.fixtures-date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: darkgray;
+    padding-top: 15px;    
+}
+
+.timeOrScore {
+    padding-top: 8px;
+}
+
+.timeOrScore.timeOnly {
+    width: 18%;
+}
+
+.timeOrScore.scoresOnly {
+    width: 20%;
+}
+
+.timeOrScore.timeOnly {
+    width: 36%;
+}
+
+.countryName {
+    width: 40%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.countryName.team1 {
+    text-align: right;
+}
+
+.countryName.team2 {
+    text-align: left;
+}
